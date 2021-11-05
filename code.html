@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: By Angelus Taylor</title>
+    <title>Hermes 100: By Angelus Taylor</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,6 +20,13 @@
     <!-- Prism JS File -->
     <link rel="stylesheet" href="css/prism.css">
 
+    <!-- Fonts -->
+    <!-- Gideon Roman & IM Fell Great Primer SC -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gideon+Roman&family=IM+Fell+Great+Primer+SC&display=swap"
+        rel="stylesheet">
+
 </head>
 
 <body class="d-flex flex-column h-100">
@@ -27,8 +34,8 @@
     <!-- NavBar Section -->
     <nav class="navbar navbar-expand-md navbar-dark fixed-top">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img class="d-inline-block align-text-top" src="img/ms-icon-310x310.png"
-                    alt="A T D Icon">  APP NAME</a>
+            <a class="navbar-brand" href="index.html"><img class="d-inline-block align-text-top" src="img/ms-icon-310x310.png"
+                    alt="A T D Icon"> HERMES 100</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -48,7 +55,7 @@
                         <a class="nav-link" target="_blank" href="#">About</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                        <a class="nav-link" target="_blank" href="https://github.com/AngelusTaylorDev/Hermes-One-Hundred">Git Repo</a>
                     </li>
                 </ul>
             </div>
@@ -58,20 +65,87 @@
     <!-- Main Body Section -->
     <main class="flex-shrink-0">
         <div class="container py-5 pt-5 mt-5">
-            <h2 class="tittle border-1 border-bottom border-dark">The Code for APP NAME</h2>
+            <h2 class="tittle border-1 border-bottom border-dark">The Code for Hermes 100</h2>
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                        //Call Hello World
-                        function helloWorld() {
-                            alert("Hello World");
+                        // Pseudo code
+                        // --------------------------------------------------
+                        // 1. Sellect the HTML elements needed 
+                        // 2. Get the start and end values from the the UI
+                        // 3. Generate numbers from the start value to the end value
+                        // 4. Display numbers in in the HTML table
+                        // 5. Display all even numbers in bold
+                        // 6. Run the Program after the button is pushed
+                        // --------------------------------------------------
+
+                        // 1. Sellect the HTML elements needed 
+                        // -----------------------------------
+                        // let resultTable = document.getElementById('results');
+                        const resultsBtn = document.getElementById('btn-submit');
+
+
+                        // 2. Get the start and end values from the the UI
+                        // --------------------------------------------------
+                        function getValues() {
+
+                            // Geting the values from start value and parse int
+                            let startNumValue = document.getElementById('start-value').value;
+
+                            // Geting the values from End value and parse int
+                            let endNumValue = document.getElementById('end-value').value;
+
+                            // Parse int on both inputs
+                            startNumValue = parseInt(startNumValue);
+                            endNumValue = parseInt(endNumValue);
+
+                            // Catch error ut the user entering anything other then a interger 
+                            if (Number.isInteger(startNumValue) && Number.isInteger(endNumValue)) {
+
+                                // 3. Generate numbers from the start value to the end value
+                                // ---------------------------------------------------------
+                                let number = 0;
+                                let tmpRows = '';
+
+                                for (let i = startNumValue; i <= endNumValue; i++) {
+
+                                    number = i;
+                                    console.log(number);
+
+                                    // 4. Display numbers in in the HTML table 
+                                    if (number % 2 == 0) {
+
+                                        // 5. Display all even numbers in bold
+                                        tmpRows += `<tr><td><b>${number}</b></td></tr>`;
+                                        document.getElementById('results').innerHTML = tmpRows;
+                                    } else {
+
+                                        // Displaying numbers in in the HTML table 
+                                        tmpRows += `<tr><td>${number}</td></tr>`;
+                                        document.getElementById('results').innerHTML = tmpRows;
+                                    }
+                                }
+                                return number;
+
+                            } else {
+                                alert("Please Use Number only");
+                            }
                         }
+
+                        // 6. Run the Program after the button is pushed
+                        // ----------------------------------------------
+                        resultsBtn.addEventListener('click', () => {
+                            getValues();
+                        })
                     </code></pre>
                 </div>
                 <div class="col-lg-4">
-                    <p>The code is struched in one functione</p>
-                    <h5>Hello World Presented using <span><a target="_blank" href="https://prismjs.com/index.html">Prism.js</a></span></h5>
-                    <p>Hello World is a alert with a message of hello world</p>
+                    <h2>The code is structured in one function.</h2>
+                    <h5>Presented using <span><a target="_blank"
+                                href="https://prismjs.com/index.html">Prism.js</a></span></h5>
+                    <p>Hermes 100 will display the numbers 0 to 100 and highlight the even numbers in <span class="inBolden">BOLD</span>.</p>
+                    <p>Unfortunately, Prism.js doesn't work with string template literals well. For the full source code check out my git Repo.</p>
+                    
                 </div>
             </div>
         </div>
@@ -89,18 +163,15 @@
                     <img src="img/footer-brand-img.svg" alt="Angelus T Dev Logo">
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
-                    <div class="row">
+                    <div class="row px-3">
                         <div class="col social">
-                            <a href="#" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
+                            <a href="https://www.linkedin.com/in/andytaylor3000/" target="_blank"><i class="fab fa-linkedin fa-2x"></i></a>
                         </div>
                         <div class="col social">
-                            <a href="#" target="_blank"><i class="fab fa-github fa-2x"></i></a>
+                            <a href="https://github.com/AngelusTaylorDev" target="_blank"><i class="fab fa-github fa-2x"></i></a>
                         </div>
                         <div class="col social">
-                            <a href="#" target="_blank"><i class="fab fa-facebook fa-2x"></i></a>
-                        </div>
-                        <div class="col social">
-                            <a href="#" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
+                            <a href="https://twitter.com/AngelusTaylor" target="_blank"><i class="fab fa-twitter fa-2x"></i></a>
                         </div>
                     </div>
                 </div>
@@ -111,13 +182,15 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous">
-        </script>
+    </script>
 
     <!-- font Awesome -->
     <script src="https://kit.fontawesome.com/f697b4ae1b.js" crossorigin="anonymous"></script>
 
     <!-- Prism JS File -->
     <script src="js/prism.js"></script>
+
+    <!-- Prism JS structured -->
     <script>
         Prism.plugins.NormalizeWhitespace.setDefaults({
             'remove-trailing': true,

@@ -7,14 +7,25 @@
 }
 
 /* font styling */
-h1, h2, h3, h4{
+h1, h2, h3{
     color: var(--secondary-color);
+    font-family: 'IM Fell Great Primer SC', serif;
 }
 
 h1, .app-name {
-    font-size: 2em;
+    font-size: 2.5em;
 }
 
+h4 {
+    color: var(--dark-color);
+    font-family: 'Gideon Roman', cursive;
+}
+
+p {
+    font-family: 'Gideon Roman', cursive;
+}
+
+/* a tag styling */
 a {
     color: var(--secondary-color);
 }
@@ -58,8 +69,12 @@ main>.container {
 /* Main Body Styling */
 
 .app-logo img {
-    width: 350px;
+    width: 600px;
     height: 350px;
+}
+
+.inBolden {
+    font-weight: bold;
 }
 
 /* Tech Icons styling */
